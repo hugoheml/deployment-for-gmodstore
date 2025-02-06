@@ -67,7 +67,7 @@ async function main(){
 				return
 			}
 
-			core.setFailed(`An error occurred during upload, with HTTP code ${response.status} and message "${body.message}".`)
+			core.setFailed(`An error occurred during upload, with HTTP code ${response.status} and message "${body.message}".\nFull body: ${body}`)
 			if (body.errors){
 				for (let id of Object.keys(body.errors)){
 					let errs = body.errors[id]
