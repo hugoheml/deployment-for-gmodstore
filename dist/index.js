@@ -10217,7 +10217,7 @@ async function main() {
                 }
                 return;
             }
-            core.setFailed(`An error occurred during upload, with HTTP code ${response.status} and message "${body.message}".\nFull body: ${body}`);
+            core.setFailed(`An error occurred during upload, with HTTP code ${response.status} and message "${body.message}".\nFull body: ${JSON.stringify(body, null, 2)}`);
             if (body.errors) {
                 for (let id of Object.keys(body.errors)) {
                     let errs = body.errors[id];
